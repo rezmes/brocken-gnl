@@ -3,6 +3,7 @@
 static int	ft_strlen(char *s)
 {
 	int	i;
+
 	i = 0;
 	while (s && s[i])
 		i++;
@@ -17,7 +18,10 @@ static char	*ft_strjoin(char *s1, char *s2)
 
 	res = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!res)
+	{
+		free(s1);
 		return (NULL);
+	}
 	i = 0;
 	j = 0;
 	while (s1 && s1[i])
@@ -34,7 +38,9 @@ static char	*ft_strjoin(char *s1, char *s2)
 
 static int	has_newline(char *s)
 {
-	int	i = 0;
+	int	i;
+
+	i = 0;
 	while (s && s[i])
 	{
 		if (s[i] == '\n')
@@ -46,9 +52,10 @@ static int	has_newline(char *s)
 
 static char	*extract_line(char *stash)
 {
-	int		i = 0;
+	int		i;
 	char	*line;
 
+	i = 0;
 	if (!stash || !stash[0])
 		return (NULL);
 	while (stash[i] && stash[i] != '\n')
@@ -70,10 +77,12 @@ static char	*extract_line(char *stash)
 
 static char	*clean_stash(char *stash)
 {
-	int		i = 0;
-	int		j = 0;
-	char	*new;
+	int		i;
+	int		j;
+	char	*new_stash;
 
+	i = 0;
+	j = 0;
 	while (stash[i] && stash[i] != '\n')
 		i++;
 	if (!stash[i])
@@ -81,21 +90,25 @@ static char	*clean_stash(char *stash)
 		free(stash);
 		return (NULL);
 	}
-	i++; // skip newline
-	new = malloc(ft_strlen(stash + i) + 1);
-	if (!new)
+	i++;
+	new_stash = malloc(ft_strlen(stash + i) + 1);
+	if (!new_stash)
+	{
+		free(stash);
 		return (NULL);
+	}
 	while (stash[i])
-		new[j++] = stash[i++];
-	new[j] = '\0';
+		new_stash[j++] = stash[i++];
+	new_stash[j] = '\0';
 	free(stash);
-	return (new);
+	return (new_stash);
 }
 
 char	*get_next_line(int fd)
 {
 	static char	*stash;
 	char		buffer[BUFFER_SIZE + 1];
+	char		*line;
 	int			bytes;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -105,15 +118,19 @@ char	*get_next_line(int fd)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes < 0)
-			return (free(stash), stash = NULL, NULL);
+		{
+			free(stash);
+			stash = NULL;
+			return (NULL);
+		}
 		buffer[bytes] = '\0';
 		stash = ft_strjoin(stash, buffer);
+		if (!stash)
+			return (NULL);
 	}
 	if (!stash)
 		return (NULL);
-	char *line = extract_line(stash);
+	line = extract_line(stash);
 	stash = clean_stash(stash);
 	return (line);
 }
-
-
