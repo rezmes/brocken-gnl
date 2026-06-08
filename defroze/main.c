@@ -6,7 +6,7 @@
 /*   By: mmesgari <mmesgari@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:39:44 by mmesgari          #+#    #+#             */
-/*   Updated: 2026/06/08 14:12:45 by mmesgari         ###   ########.fr       */
+/*   Updated: 2026/06/08 14:32:58 by mmesgari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,34 @@ char	*ft_strcpy(char *dest, char *src)
 	return (start);
 }
 
+int	ft_strcmp(char *str1, char *str2)
+{
+	int result;
+	while (*str1 && *str2 && *str1 == *str2)
+	{
+		str1++;
+		str2++;
+	}
+	result = (int)*str1 - (int)*str2;
+	return (result);
+}
+
 #include <stdio.h>
 int main(void)
 {
     char *str1;
     char str2[10];
+	char *str3;
     int len;
 
     str1 = "Hellllo";
-//	str2 = "Paol";
+	str3 = "Paol";
     ft_putstr("42\n");
     len = ft_strlen(str1);
     printf("%d\n", len);
 	ft_strcpy(str2, str1);
 	printf("%s\n", str2);
+	printf("%d\n", ft_strcmp(str1, str3));
 
     return (0);
 }
