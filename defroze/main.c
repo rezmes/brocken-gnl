@@ -6,7 +6,7 @@
 /*   By: mmesgari <mmesgari@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:39:44 by mmesgari          #+#    #+#             */
-/*   Updated: 2026/06/08 13:40:21 by mmesgari         ###   ########.fr       */
+/*   Updated: 2026/06/08 14:12:45 by mmesgari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,32 @@ int ft_strlen(char *str)
 
 }
 
+char	*ft_strcpy(char *dest, char *src)
+{
+	char *start;
+
+	start = dest;
+	while (*src)
+		*dest++ = *src++;
+	*dest = '\0';
+
+	return (start);
+}
+
 #include <stdio.h>
 int main(void)
 {
-    char *str;
+    char *str1;
+    char str2[10];
     int len;
 
-    str = "Hello";
+    str1 = "Hellllo";
+//	str2 = "Paol";
     ft_putstr("42\n");
-    len = ft_strlen(str);
+    len = ft_strlen(str1);
     printf("%d\n", len);
+	ft_strcpy(str2, str1);
+	printf("%s\n", str2);
 
     return (0);
 }
