@@ -129,6 +129,27 @@ char *ft_strncpy(char *dest, char *src, int n)
     return (dest);
 }
 
+char	*ft_strchr(char *str, char c)
+{
+	while (*str && *str != c)
+        str++;
+    return (str);
+}
+
+char	*ft_strrchr(char *str, char c)
+{
+    int len;
+
+    len = ft_strlen(str);
+    len--;
+	while (len >= 0 && str[len] != c)
+        len--;
+    if (len == -1)
+        return (NULL);
+    else
+        return (&str[len]);
+}
+
 #include <stdio.h>
 int main(void)
 {
