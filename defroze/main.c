@@ -6,12 +6,12 @@
 /*   By: mmesgari <mmesgari@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 13:39:44 by mmesgari          #+#    #+#             */
-/*   Updated: 2026/06/08 14:32:58 by mmesgari         ###   ########.fr       */
+/*   Updated: 2026/06/08 16:14:28 by mmesgari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
+#include <stdlib.h>
 void    ft_putstr(char *str)
 {
         int i;
@@ -62,22 +62,69 @@ int	ft_strcmp(char *str1, char *str2)
 	return (result);
 }
 
+char *ft_strdup(char *str)
+{
+    char *dest;
+    char *result;
+    int len;
+
+    len = ft_strlen(str);
+    dest = malloc(sizeof(char) * (len + 1));
+    if (!dest)
+        return NULL;
+    result = dest;
+    while (*str)
+        *dest++ = *str++;
+    *dest = '\0';
+    return (result);
+}
+
+char *ft_strcat(char *dest, char *src)
+{
+    int i;
+
+    i = 0;
+    while (dest[i])
+        i++;
+    while (*src)
+        dest[i++] = *src++;
+    dest[i] = '\0';
+    return (dest);
+//    char *start;
+
+//    start = dest;
+//    while(*dest)
+//        *dest++;
+//    while(*src)
+//        *dest++ = *src++;
+//    *dest = '\0';
+//    return (start);
+}
+
 #include <stdio.h>
 int main(void)
 {
     char *str1;
     char str2[10];
 	char *str3;
+    char *str4;
+    char str5[10] = "Hello ";
     int len;
 
     str1 = "Hellllo";
+    
 	str3 = "Paol";
+    str4 = "man baakhtam, bad ham bakhtam, man abrooye shahre mano bordam, man daram be ghahghara miram, fghat bezahrid berammm man";
     ft_putstr("42\n");
     len = ft_strlen(str1);
     printf("%d\n", len);
 	ft_strcpy(str2, str1);
 	printf("%s\n", str2);
 	printf("%d\n", ft_strcmp(str1, str3));
+	printf("%s\n", ft_strdup(str4));
+    printf("%s\n", ft_strcat(str5, str3));
+    
 
     return (0);
 }
+
