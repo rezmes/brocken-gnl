@@ -114,6 +114,21 @@ char *ft_strncat(char *dest, char *src, int n)
     return (dest);
 }
 
+char *ft_strncpy(char *dest, char *src, int n)
+{
+    int i = 0;
+
+    while (src[i] && i < n)
+    {
+        dest[i] = src[i];
+        i++;
+    }
+    while (i < n)
+        dest[i++] = '\0';
+    dest[i] = '\0';
+    return (dest);
+}
+
 #include <stdio.h>
 int main(void)
 {
@@ -131,7 +146,8 @@ int main(void)
     ft_putstr("42\n");
     len = ft_strlen(str1);
     printf("%d\n", len);
-	ft_strcpy(str2, str1);
+	printf("%s\n", ft_strcpy(str2, str1));
+    printf("%s\n", ft_strncpy(str2, str1, 3));
 	printf("%s\n", str2);
 	printf("%d\n", ft_strcmp(str1, str3));
 	printf("%s\n", ft_strdup(str4));
