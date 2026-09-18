@@ -1,0 +1,150 @@
+  902  vim ft_strjoin.c
+  903  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  904  vim ft_strjoin.c
+  905  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  906  vim ft_strjoin.c
+  907  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  908  ./test
+  909  vim ft_strjoin.c
+  910  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  911  ./test
+  912  vim ft_strjoin.c
+  913  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  914  ./test
+  915  vim ft_strjoin.c
+  916  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  917  ./test
+  918  vim ft_strjoin.c
+  919  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  920  ./test
+  921  vim ft_strjoin.c
+  922  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  923  ./test
+  924  vim ft_strjoin.c
+  925  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  926  ./test
+  927  vim ft_strjoin.c
+  928  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  929  vim ft_strjoin.c
+  930  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  931  ./test
+  932  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  933  vim ft_strjoin.c
+  934  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  935  ./test
+  936  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  937  vim ft_strjoin.c
+  938  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  939  ./test
+  940  vim ft_strjoin.c
+  941  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  942  ./test
+  943  vim ft_strjoin.c
+  944  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  945  ./test
+  946  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  947  vim ft_strjoin.c
+  948  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  949  ./test
+  950  vim ft_strjoin.c
+  951  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  952  ./test
+  953  vim ft_strjoin.c
+  954  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  955  ./test
+  956  vim ft_strjoin.c
+  957  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  958  ./test
+  959  vim ft_strjoin.c
+  960  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  961  ./test
+  962  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  963  vim ft_strjoin.c
+  964  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  965  vim ft_strjoin.c
+  966  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  967  ./test
+  968  vim ft_strjoin.c
+  969  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  970  vim ft_strjoin.c
+  971  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  972  ./test
+  973  vim ft_strjoin.c
+  974  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  975  ./test
+  976  vim ft_strjoin.c
+  977  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  978  ./test
+  979  vim ft_strjoin.c
+  980  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  981  ./test
+  982  vim ft_strjoin.c
+  983  gcc -Wall -Wextra -Werror ft_strjoin.c -o test
+  984  ./test
+  985  vim ft_strjoin.c
+  986  add ft_strjoin.c
+  987  git add ft_strjoin.c
+  988  commit -m "new try"
+  989  git commit -m "new try"
+  990  git push
+  991  exit
+  992  vim
+  993  man malloc
+  994  exit
+  995  gucharmap
+  996  clear
+  997  mk newgnl & cd newgnl
+  998  mkd newgnl & cd newgnl
+  999  mkdir newgnl & cd newgnl
+ 1000  cd newgnl
+ 1001  vim get_next_line.c
+ 1002  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1003  vim get_next_line.c
+ 1004  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1005  ./test
+ 1006  ./test "ab\ncd" '\n'
+ 1007  vim get_next_line.c
+ 1008  ./test "ab\ncd" '\n'
+ 1009  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1010  ./test
+ 1011  ./test "ab\ncd" '\n'
+ 1012  vim get_next_line.c
+ 1013  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1014  vim get_next_line.c
+ 1015  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1016  vim get_next_line.c
+ 1017  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1018  vim get_next_line.c
+ 1019  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1020  ./test "ab\ncd" '\n'
+ 1021  vim get_next_line.c
+ 1022  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1023  ./test "ab\ncd" '\n'
+ 1024  vim get_next_line.c
+ 1025  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1026  ./test "ab\ncd" '\n'
+ 1027  vim get_next_line.c
+ 1028  ./test "ab\ncd" '\n'
+ 1029  vim get_next_line.c
+ 1030  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1031  ./test "ab\ncd" '\n'
+ 1032  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1033  vim get_next_line.c
+ 1034  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1035  ./test "ab\ncd" '\n'
+ 1036  ./test "ab\ncd" '\\n'
+ 1037  ./test "ab\ncd" \n
+ 1038  vim get_next_line.c
+ 1039  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1040  ./test "ab\ncd" \n
+ 1041  ./test
+ 1042  ./test "abcd" \n
+ 1043  ./test NULL \n
+ 1044  vim get_next_line.c
+ 1045  gcc -Wall -Wextra -Werror get_next_line.c -o test
+ 1046  ./test NULL \n
+ 1047  ./test "abcd" \n
+ 1048  history | xsel -b
+ 1049  history | tail -n 30 > session_history.txt
+ 1050  history | tail -n 100 > session_history.txt
+ 1051  history | tail -n 150 > session_history.txt
