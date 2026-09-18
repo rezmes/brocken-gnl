@@ -78,6 +78,50 @@ char *extract_line(char *stash)
 		return (result);
 }
 
+char *trim_stash(char *stash)
+{
+		char *result;
+		int i = 0;
+//		int j = 0;
+//		int j = 1;
+		int j = 0;
+		if (!stash || !*stash)
+				return NULL;
+		while (stash[i] && stash[i] != '\n')
+				i++;
+	//	if (stash[i++] == '\0')
+//		if (stash[i] == '\n')
+//		{
+	//		i++;
+//			if (stash[i] == '\0')
+//		if (stash[i] == '\0' || stash[i++] == '\0')
+			
+		if (stash[i] == '\0')
+			   return NULL;
+		if (stash[i] == '\n')
+		{
+			i++;
+			if (stash[i] == '\0')
+					return NULL;
+		//	else
+		//			i--;
+		}
+		while (stash[i+j])
+				j++;
+		result = (char *)malloc(sizeof(char) * (j + 1));
+		if (!result)
+				return NULL;
+		j = 0;
+//		j = 1;
+		while (stash[i + j])
+		{
+				result[j] = stash[i + j];
+				j++;
+		}
+		result[j] = '\0';
+		return (result);
+}
+
 #include <stdio.h>
 int main()
 {
@@ -99,6 +143,26 @@ int main()
 		printf(":%s:\n", result);
 		free(result);
 */
+		result = trim_stash("ab\ncd"); 
+		printf(":%s:\n", result);
+		free(result);
+		result = trim_stash("ab\n");
+		printf(":%s:\n", result);
+		free(result);
+		result = trim_stash("abcd");
+		printf(":%s:\n", result);
+		free(result);
+		result = trim_stash("\nabc");
+		printf(":%s:\n", result);
+		free(result);
+		result = trim_stash("");
+		printf(":%s:\n", result);
+		free(result);
+		result = trim_stash(NULL);
+		printf(":%s:\n", result);
+		free(result);
+
+/*	
 		result = extract_line("ab\ncd"); // ->  :ab\n:      (یعنی ab و بعد خط خالی)
 		printf(":%s:\n", result);
 		free(result);
@@ -114,6 +178,7 @@ int main()
 		result = extract_line(NULL);     // ->  :(null):
 		printf(":%s:\n", result);
 		free(result);
+*/
 /*
 		printf(":%s:\n",ft_strchr("abcd", '\n'));
 		printf(":%s:\n", ft_strchr("ab\ncd", '\n'));
