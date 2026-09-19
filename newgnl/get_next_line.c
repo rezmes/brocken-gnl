@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
 char *ft_strchr(char *s, int c)
 {
@@ -82,20 +83,11 @@ char *trim_stash(char *stash)
 {
 		char *result;
 		int i = 0;
-//		int j = 0;
-//		int j = 1;
 		int j = 0;
 		if (!stash || !*stash)
 				return NULL;
 		while (stash[i] && stash[i] != '\n')
 				i++;
-	//	if (stash[i++] == '\0')
-//		if (stash[i] == '\n')
-//		{
-	//		i++;
-//			if (stash[i] == '\0')
-//		if (stash[i] == '\0' || stash[i++] == '\0')
-			
 		if (stash[i] == '\0')
 			   return NULL;
 		if (stash[i] == '\n')
@@ -103,8 +95,6 @@ char *trim_stash(char *stash)
 			i++;
 			if (stash[i] == '\0')
 					return NULL;
-		//	else
-		//			i--;
 		}
 		while (stash[i+j])
 				j++;
@@ -112,7 +102,6 @@ char *trim_stash(char *stash)
 		if (!result)
 				return NULL;
 		j = 0;
-//		j = 1;
 		while (stash[i + j])
 		{
 				result[j] = stash[i + j];
@@ -122,11 +111,72 @@ char *trim_stash(char *stash)
 		return (result);
 }
 
+char	*read_once(int fd)
+{
+		char *buff;
+		int result;
+		int i = 0;
+
+		fd = open("./file", O_RDONLY);
+		buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!buff)
+				return NULL;
+
+		while (i <= BUFFER_SIZE)
+		{
+				buff[i] = ;
+				i++;
+		}
+
+
+		result = read(fd, buff, BUFFER_SIZE);
+		if (result == -1)
+				return NULL;
+		buff[i] = '\0';
+		return (buff);
+}
+
+#include <unistd.h>
+#include <stdlib.h>
+
+char    *read_once(int fd)
+{
+        char *buff;
+        int result;
+
+        buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+        if (!buff)
+                return NULL;
+        result = read(fd, buff, BUFFER_SIZE);
+        if (result == -1)
+        {
+                free(buff);
+                return NULL;
+        }
+        buff[result] = '\0';
+        return (buff);
+}
+
+#include <fcntl.h>
+#include <stdio.h>
+
+int main()
+{
+        int fd = open("./file", O_RDONLY);
+        char *result = read_once(fd);
+
+        printf(":%s:\n", result);
+        free(result);
+        close(fd);
+
+        return (0);
+}
+/*
 #include <stdio.h>
 int main()
 {
 		char *result;
-/*
+
 		result = ft_strjoin(NULL, "XYZ");
 		printf(":%s:\n", result);
 		free(result);
@@ -142,7 +192,7 @@ int main()
 		result = ft_strjoin(NULL, "");
 		printf(":%s:\n", result);
 		free(result);
-*/
+
 		result = trim_stash("ab\ncd"); 
 		printf(":%s:\n", result);
 		free(result);
@@ -162,7 +212,7 @@ int main()
 		printf(":%s:\n", result);
 		free(result);
 
-/*	
+	
 		result = extract_line("ab\ncd"); // ->  :ab\n:      (یعنی ab و بعد خط خالی)
 		printf(":%s:\n", result);
 		free(result);
@@ -178,11 +228,12 @@ int main()
 		result = extract_line(NULL);     // ->  :(null):
 		printf(":%s:\n", result);
 		free(result);
-*/
-/*
+
+
 		printf(":%s:\n",ft_strchr("abcd", '\n'));
 		printf(":%s:\n", ft_strchr("ab\ncd", '\n'));
 		printf(":%s:\n", ft_strchr(NULL, '\n'));
-*/
+
 		return (0);
 }
+*/
