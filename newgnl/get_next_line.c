@@ -153,20 +153,25 @@ char *read_to_stash(int fd, char *stash)
 }
 
 
-char  *gnl(int fd)
+char  *get_next_line(int fd)
 {
 		static char *stash;
+		char *line;
+		char *tmp;
 
-		while (*stash)
-		{
+//		while (*stash)
+//		{
 				stash = read_to_stash(fd, stash);
 				if(!stash)
 				{
 						free(stash);
 						return NULL;
 				}
+				line = extract_line(stash);
+				tmp = trim_stash(stash);
 				free(stash);
-		}
+				stash = tmp;
+//		}
 		return (line);
 }
 
@@ -175,6 +180,7 @@ char  *gnl(int fd)
 
 int main()
 {
+/*
         int fd = open("./file", O_RDONLY);
         char *result = read_to_stash(fd, NULL);
 
@@ -182,7 +188,7 @@ int main()
         free(result);
         close(fd);
 
-   		fd = open("./f1", O_RDONLY);
+	fd = open("./f1", O_RDONLY);
         char *resultf1 = read_to_stash(fd, NULL);
 
         printf(":%s:\n", resultf1);
@@ -195,9 +201,15 @@ int main()
         printf(":%s:\n", resultf2);
         free(resultf2);
         close(fd);
-
-
-
+*/
+//	int	fd = open("./f2", O_RDONLY);
+	int	fd = 0;
+        char *line;
+       while ((line = get_next_line(fd)))
+       {
+	       printf(":%s:\n",line);
+	       free(line);
+       }
         return (0);
 }
 
