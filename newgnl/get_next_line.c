@@ -138,6 +138,12 @@ char *read_to_stash(int fd, char *stash)
 				return (stash);
 		}
 		newstash = ft_strjoin(stash, buf);
+		if (!newstash)
+		{
+				free(stash);
+				free(buf);
+				return NULL;
+		}
 		free(stash);
 		stash = newstash;
 		free(buf);
@@ -147,7 +153,23 @@ char *read_to_stash(int fd, char *stash)
 }
 
 
-/*
+char  *gnl(int fd)
+{
+		static char *stash;
+
+		while (*stash)
+		{
+				stash = read_to_stash(fd, stash);
+				if(!stash)
+				{
+						free(stash);
+						return NULL;
+				}
+				free(stash);
+		}
+		return (line);
+}
+
 #include <fcntl.h>
 #include <stdio.h>
 
@@ -179,13 +201,16 @@ int main()
         return (0);
 }
 
-*/
+
+
+
+/*
 
 #include <stdio.h>
 int main()
 {
         char *result;
-/*
+
 		result = ft_strjoin(NULL, "XYZ");
         printf(":%s:\n", result);
         free(result);
@@ -205,7 +230,7 @@ int main()
 		result = trim_stash("ab\ncd");
         printf(":%s:\n", result);
         free(result);
-*/
+
 		result = trim_stash("ab\n");
         printf(":%s:\n", result);
         free(result);
@@ -222,7 +247,7 @@ int main()
         printf(":%s:\n", result);
         free(result);
 
-/*		return (0);
+		return (0);
 }
 
 
@@ -235,7 +260,7 @@ int main()
         result = extract_line("\nabc");  // ->  :\n:
         printf(":%s:\n", result);
         free(result);
-*/
+
         result = extract_line("");       // ->  :(null):
         printf(":%s:\n", result);
         free(result);
@@ -248,5 +273,5 @@ int main()
         printf(":%s:\n", ft_strchr(NULL, '\n'));
         return (0);
 }
-
+*/
 
